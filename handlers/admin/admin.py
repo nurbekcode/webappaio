@@ -5,9 +5,14 @@ from aiogram.filters import Command
 from keyboards.default.buttons import *
 from api import get_all_users
 import os
+
+
+
 @dp.message(Command('admin'),IsChatAdmin(),IsPrivate())
 async def start_admin_panel(message:types.Message):
     await message.answer("🔝 Admin panel!",reply_markup=admin_button())
+
+
 @dp.message(F.text=='🗣 Reklama yuborish',IsChatAdmin(),IsPrivate())
 async def get_add_type(message:types.Message):
     await message.answer("Qaysi turdagi xabar yuborasiz!\n"
