@@ -27,7 +27,7 @@ async def main():
 
         # Start polling
         await dp.start_polling(bot)
-    finally:zz
+    finally:
         await bot.session.close()
 
 if __name__ == '__main__':
