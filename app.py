@@ -20,7 +20,7 @@ async def main():
         dp.message.middleware(UserCheckMiddleware())
 
         # 🔁 Run fetch every 5 minutes
-        scheduler.add_job(fetch_and_schedule_tasks, "interval", minutes=5, args=[bot])
+        scheduler.add_job(fetch_and_schedule_tasks, "interval", minutes=10, args=[bot])
 
         # Start the scheduler
         scheduler.start()
@@ -29,6 +29,10 @@ async def main():
         await dp.start_polling(bot)
     finally:
         await bot.session.close()
+
+
+
+
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO, stream=sys.stdout)
